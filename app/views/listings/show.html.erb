@@ -1,0 +1,80 @@
+<%= render 'partial/navbar' %>
+
+<!-- ジャンボトロン -->
+<div class="jumbotron-listings row-space-0" style="margin-top: -20px; background: none;">
+    
+<div class=""style="background:black;">
+      <% if !@listing.blank?%>             
+          <div class="col-xs-12 col-xs-offset-0 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" style="margin-bottom:100px; margin-top:5%;">
+           <%= link_to @listing.video_url.to_s, id: "video" do %>
+            <%= image_tag @listing.image.to_s,:style=> "height:300px; margin-left:auto; margin-right:auto; overflow:hidden;box-shadow: 0 10px 10px #FF6694; background: #FF6694;display:block;opacity: 1;" %>
+            <i class="fa fa-caret-square-o-right" style="position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;/*余計な隙間を除く*/
+  padding:0;/*余計な隙間を除く*/
+  color: white;/*アイコン色*/
+  font-size: 150px;"></i>  
+<% end %>
+          </div>
+        <% end %>
+        </div>
+      
+</div>
+         
+
+
+<!-- サマリー -->
+<div class="container-fluid container-listing-show" style="margin-top:20%;">
+    <div class="container">
+        <div class="listing-summary row-space-3 row-space-top-3">
+            <div class="row">
+                <div class="col-md-12 text-center row-space-2">
+                    
+                    <h1><%= @listing.name %>  <%= @listing.age %>歳</h1>
+                </div>
+
+                <div class="col-md-12 text-center row-space-2" style="margin-bottom:100px;">
+                    
+                    <h2>一時間あたり<%= @listing.price_perhour %></h2>
+
+                    <%= link_to raw("デートの予約をする"),new_listing_reservation_path(@listing),class:"btn btn-block btn-social btn-lg btn-facebook", style:"width:220px; margin:auto; display:block; box-shadow: 2px 2px 3px 1px #FF6694; background-color:#FF6694;" %>
+                </div>
+
+
+
+
+                <div class="col-md-4 col-xs-6 text-center row-space-2">
+                    <h3>地域</h3>
+                    <h3><%= @listing.region %></h3>
+                </div>
+
+                <div class="col-md-4 col-xs-6 text-center row-space-2">
+                    <h3>所属</h3>
+                    <h3><%= @listing.school %></h3>
+                </div>
+
+                <div class="col-md-4 col-xs-12 text-center row-space-2">
+                    <h3>SNSリンク</h3>
+                    <h3><a href="<%= @listing.link %>"><%= image_tag ("twitter.jpg"), style:"height:40px;" %></a></h3>
+                </div>
+
+                <div class="col-md-12" style="">
+                    <div class="listing-title" style="font-size:24px; text-align:center; margin-top:40px; margin-bottom:10px;">
+                    <p style="color:white;">-</p>
+                    <h2 style="">自己紹介</h2>
+                        <%= @listing.listing_title %><br><br>
+                        <%= @listing.listing_content %>
+                    </div>
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+         

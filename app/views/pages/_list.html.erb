@@ -1,0 +1,51 @@
+<% if @arrlistings  %>
+    <div class="row filter-section">
+        <% @arrlistings.first(10).each do |listing| %>
+        
+                <%= link_to listing do %>
+                <section id="portfolio" class="bg-light-gray row-space-top-4 row-space-4">
+    <div class="container" style="">
+                    <div class="row" style="margin-top:7%; margin-bottom:7%;">
+        <% if !listing.blank?%>
+          <% if !listing.listing_title.blank? && !listing.listing_content.blank? && !listing.video.blank? && !listing.image.blank? && !listing.name.blank? %>
+            <div class="col-xs-offset-1 col-md-3 col-xs-10 portfolio-item row-space-2" style="">
+              <%= link_to listing_path(listing).first(8) do %>
+                <%= link_to listing.video_url.to_s, id: "video" do %>
+<%= image_tag listing.image.to_s, style: "box-shadow: 0 10px 10px #FF6694; background: #FF6694;display:block;opacity: 1;" %>
+<i class="fa fa-caret-square-o-right" style="position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;/*余計な隙間を除く*/
+  padding:0;/*余計な隙間を除く*/
+  color: white;/*アイコン色*/
+  font-size: 100px;"></i>  
+  <% end %>
+  <% end %>
+              <div class="portfolio-caption" style="font-size:17px;">
+                <%= link_to listing_path(listing) do %>
+                  <% listing.name %>
+                <% end %>
+                <span style="font-size:14px;">さん</span>
+                <div style="float:right;">
+                <%= link_to listing_path(listing) do %>
+                  <% listing.age %>
+                <% end %>
+                <span style="font-size:14px;">歳</span></div>
+
+                <div style="margin-top:5%">
+                <%= link_to raw("この人を詳しく見てみる"),listing_path(listing),class:"btn btn-block btn-social btn-lg btn-facebook", style:"width:220px; margin:auto; display:block; box-shadow: 2px 2px 3px 1px #FF6694; background-color:#FF6694;" %>
+                </div>
+              
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+      </div></div></section>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+<% end %>

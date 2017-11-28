@@ -1,0 +1,21 @@
+<div class="col-xs-12" style="width:100%;"></div>
+<!-- Search Form -->
+<%= search_form_for @search, url: search_path do |f| %>
+ <div class="container">
+  <div class="filter">
+
+    <!-- 職種 -->
+    <div class="row filter-section ">
+
+    <div class="col-xs-9 col-md-11" style="padding-right: 0px ">
+            <%= f.text_field :name_eq_any, placeholder: "レンカノ再検索！",value:session[:name_eq_any],class:"form-control" %>
+          </div>
+    
+    <!-- Submitボタン -->
+    <div class="col-xs-2  col-md-1 row filter-section ">
+        <%= f.submit "再検索", class: "btn btn-default",style:"color:white; background-color:#FF6694" %>
+    </div>    
+  </div>
+  </div>
+  </div>
+<% end %>

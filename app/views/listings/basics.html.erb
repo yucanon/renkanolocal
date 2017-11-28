@@ -1,0 +1,115 @@
+<%= render 'partial/navbar' %>
+<div class="container">
+    <div class="col-md-3">
+        <!-- vertical-navbar -->
+        <%= render 'partial/verticalnavbar'%>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              <div class="text-center">
+                  <span style="font-size:24px;">事前登録基本データ</span>
+              </div>
+          </div>
+
+          <div class="panel-body">           
+              <%= form_for @listing do |f| %>
+
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>名前</label>
+                              <%= f.text_field :name, placeholder: "名前を入力してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>タイトル</label>
+                              <%= f.text_field :listing_title, placeholder: "タイトルを記載してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>内容</label>
+                              <%= f.text_area :listing_content, rows: 8, placeholder: "内容について記述してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>年齢</label>
+                              <%= f.text_field :age, placeholder: "年齢を記載してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>一時間あたりの料金</label>
+                              <%= f.text_field :price_perhour, placeholder: "一時間あたりの料金を記載してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>所属</label>
+                              <%= f.text_field :school, placeholder: "所属を記載してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>趣味</label>
+                              <%= f.text_field :hobby, placeholder: "趣味を記載してください", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>地域</label>
+                              <%= f.text_field :region, placeholder: "地域を記載してください（東京、埼玉、大阪、名古屋など）", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                      <div class="col-md-12 select">
+                          <div class="form-group">
+                              <label>SNSリンク等</label>
+                              <%= f.text_field :link, placeholder: "SNSリンク等公開できるものを一つ記載してください（ない場合はなしと記載してください）", class: "form-control", required: "true" %>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="actions">
+                      <%= f.submit "更新", class: "btn btn-danger" %>
+                  </div>
+              <% end %>
+          </div>
+      </div>
+  </div>
+</div>

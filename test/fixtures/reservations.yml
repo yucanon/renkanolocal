@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  listing: one
+  lineid: MyString
+  email: MyString
+  place: MyString
+  name: MyString
+  date1: 
+  date2: MyString
+  date3: MyString
+
+two:
+  user: two
+  listing: two
+  lineid: MyString
+  email: MyString
+  place: MyString
+  name: MyString
+  date1: 
+  date2: MyString
+  date3: MyString

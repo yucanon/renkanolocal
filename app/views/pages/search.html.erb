@@ -1,0 +1,23 @@
+<script>
+  $(function(){
+    $("#pac-input").removeClass("hidden")
+  });
+</script>
+<%= render 'partial/navbar' %>
+
+<div class="container-fluid" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+                
+                <div id="search-filter">
+                    <%= render 'filter' %>
+                </div>
+                <!-- Search Result -->
+                <div id="search-result" class="row-space-top-4">
+                    <%= render 'list' %>
+                </div>
+        </div>
+
+        
+    </div>
+</div>

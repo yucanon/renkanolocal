@@ -1,0 +1,57 @@
+<%= render 'partial/navbar' %>
+<div class="container">
+    <div class="col-md-3">
+        <!-- vertical-navbar -->
+        <%= render 'partial/verticalnavbar'%>
+    </div>
+    <div class="col-md-9 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-center">
+                    <span style="font-size:20px;">リスティング写真の編集</span>
+                </div>
+            </div>
+
+            <% if @listing.image.blank? %> 
+            <div class="panel-body">
+
+                <%= form_for @listing, html:{multipart: true} do |f| %> 
+                    
+                    <%= f.hidden_field :listing_id, value: @listing.id, required: "true"%>
+                    
+                    <div class="fallback">
+                        <%= f.label :image %><br>
+                        <%= f.file_field :image, :accept => 'image/*'%>
+                        <%= f.submit "Upload image" %>
+                    </div>
+
+                <% end %>
+            </div>
+            <% else %>
+            <h5><br>画像はすでに埋め込まれています。<br><br></h5>
+             <%= form_for(@listing) do |f| %>
+              <%= link_to @listing.image_url.to_s, id: "video" do %>
+              <% image_tag @listing.image_url.to_s, style:"height:150px; display: block; margin-left: auto; margin-right: auto;" %>
+              <% end %>
+              <%end%>
+
+              <h5><br><br>新しい画像にする場合、<br>こちらにアップロードをお願いします。<br></h5>
+
+              <div class="panel-body">
+
+                <%= form_for @listing, html:{multipart: true} do |f| %> 
+                    
+                    <%= f.hidden_field :listing_id, value: @listing.id, required: "true"%>
+                    
+                    <div class="fallback">
+                        <%= f.label :image %><br>
+                        <%= f.file_field :image, :accept => 'image/*'%>
+                        <%= f.submit "Upload image" %>
+                    </div>
+
+                <% end %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>
